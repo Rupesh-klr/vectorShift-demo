@@ -6,7 +6,6 @@ import {
     addEdge,
     applyNodeChanges,
     applyEdgeChanges,
-    MarkerType,
   } from 'reactflow';
 export  function getClientId(){
   let clientId = localStorage.getItem('vector_shift_client_id');
