@@ -1,0 +1,12 @@
+# Environments
+venv/
+env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment Variables (Keep secrets safe!)
+.env
+.env.local
