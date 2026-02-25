@@ -1,6 +1,6 @@
-import { PipelineToolbar } from './toolbar';
-import { PipelineUI } from './ui';
-import { SubmitButton } from './submit';
+import { PipelineToolbar } from './competence/toolbar/toolbar';
+import { PipelineUI } from './competence/work-flow/ui';
+import { SubmitButton } from './competence/work-flow/submit';
 
 function App() {
   return (

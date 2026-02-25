@@ -4,16 +4,16 @@
 
 import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
-import { useStore } from './store';
+import { useStore } from '../../hooks/store';
 import { shallow } from 'zustand/shallow';
-import { InputNode } from './nodes/inputNode';
-import { LLMNode } from './nodes/llmNode';
-import { OutputNode } from './nodes/outputNode';
-import { TextNode } from './nodes/textNode';
-
+import { InputNode } from '../nodes/inputNode';
+import { LLMNode } from '../nodes/llmNode';
+import { OutputNode } from '../nodes/outputNode';
+import { TextNode } from '../nodes/textNode';
+import { CustomEdge } from '../nodes/CustomEdge'; // Ensure path is correct
 import 'reactflow/dist/style.css';
 
-const gridSize = 20;
+const gridSize = 200;
 const proOptions = { hideAttribution: true };
 const nodeTypes = {
   customInput: InputNode,
@@ -21,7 +21,9 @@ const nodeTypes = {
   customOutput: OutputNode,
   text: TextNode,
 };
-
+const edgeTypes = {
+  customEdge: CustomEdge,
+};
 const selector = (state) => ({
   nodes: state.nodes,
   edges: state.edges,
@@ -103,7 +105,9 @@ export const PipelineUI = () => {
                 nodeTypes={nodeTypes}
                 proOptions={proOptions}
                 snapGrid={[gridSize, gridSize]}
-                connectionLineType='smoothstep'
+                // connectionLineType MUST NOT BE HERE
+                edgeTypes={edgeTypes} 
+                defaultEdgeOptions={{ type: 'customEdge' }} 
             >
                 <Background color="#aaa" gap={gridSize} />
                 <Controls />
