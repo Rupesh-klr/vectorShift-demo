@@ -4,7 +4,7 @@ import { useStore, getClientId } from '../../hooks/store'; // Make sure this pat
 
 export const SubmitButton = () => {
     // 1. Grab the current nodes and edges from the global state
-    const { nodes, edges, setNodes, setEdges } = useStore((state) => ({
+    const { nodes, edges } = useStore((state) => ({
         nodes: state.nodes,
         edges: state.edges,
         setNodes: state.setNodes, // Adjust these to match your actual store methods
